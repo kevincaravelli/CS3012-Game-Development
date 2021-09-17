@@ -39,7 +39,7 @@ public class Brick : MonoBehaviour
     {
         // Debug.Log("Brick Hit! " + name);
         
-        if (tag == "Unbreakable")
+        if (tag.Equals("Unbreakable"))
         {
             // Unbreakable brick
             // do nothing

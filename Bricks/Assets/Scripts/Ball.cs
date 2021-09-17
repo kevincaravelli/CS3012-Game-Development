@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
 {
 
     bool sticky = true;
-    [SerializeField] float launchVelocity = 20.0f;
+    // [SerializeField] float launchVelocity = 20.0f;
     [SerializeField] GameObject paddle;
 
     // Start is called before the first frame update
@@ -28,7 +28,8 @@ public class Ball : MonoBehaviour
     void launch()
     {
         sticky = false;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 1.0f) * launchVelocity;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-0.5f, 0.5f), 1.0f) * 
+            FindObjectOfType<GameSettings>().getVelocity();
     }
 
     // place the ball object on top of the paddle
