@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
+    [SerializeField] GameObject ballPrefab;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,16 @@ public class Floor : MonoBehaviour
 
         // find the scene loader game object
         // and call the loadScene method
-        FindObjectOfType<SceneLoader>().loadScene(0);
+        // FindObjectOfType<SceneLoader>().loadScene(0);
+
+        // reset the ball back to the paddle
+        // collision.gameObject.GetComponent<Ball>().Reset();
+
+        // destroy the ball instead
+        Destroy(collision.gameObject);
+
+        // Create a brand new ball
+        Instantiate(ballPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
 }

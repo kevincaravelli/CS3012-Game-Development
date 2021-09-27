@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    private float[] velocities = { 5.0f, 10.0f, 20.0f };
+    [SerializeField] private float[] velocities = { 5.0f, 10.0f, 20.0f };
+    [SerializeField] GameObject starPrefab;
     private int difficulty = 1;
 
     public float getVelocity()
@@ -42,6 +43,9 @@ public class GameSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate((starPrefab), new Vector3(0, 0, 10), Quaternion.identity);
+        }
     }
 }
