@@ -16,8 +16,8 @@ public class Floor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Breakable Bricks left: " + GameObject.FindGameObjectsWithTag("Breakable").Length);
-        Debug.Log("Unbreakable bricks   : " + GameObject.FindGameObjectsWithTag("Unbreakable").Length);
+        // Debug.Log("Breakable Bricks left: " + GameObject.FindGameObjectsWithTag("Breakable").Length);
+        // Debug.Log("Unbreakable bricks   : " + GameObject.FindGameObjectsWithTag("Unbreakable").Length);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Not OnCollisionEnter2D

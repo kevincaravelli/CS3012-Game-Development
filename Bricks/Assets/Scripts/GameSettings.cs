@@ -6,7 +6,10 @@ public class GameSettings : MonoBehaviour
 {
     [SerializeField] private float[] velocities = { 5.0f, 10.0f, 20.0f };
     [SerializeField] GameObject starPrefab;
+    [SerializeField] AudioClip[] music;
     private int difficulty = 1;
+    private int currentMusic;
+    private AudioSource myAudio;
 
     public float getVelocity()
     {
@@ -37,12 +40,19 @@ public class GameSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentMusic = 0;
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!myAudio.isPlaying)
+        {
+            currentMusic = (currentMusic + 1) % music.Length;
+            myAudio.clip = music[currentMusic];
+            // myAudio.Play();
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate((starPrefab), new Vector3(0, 0, 10), Quaternion.identity);
