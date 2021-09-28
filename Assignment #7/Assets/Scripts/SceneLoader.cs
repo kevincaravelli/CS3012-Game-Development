@@ -7,11 +7,12 @@ public class SceneLoader : MonoBehaviour
 {
     // If there is no direction to load it will be a negative value
     [SerializeField] int up, down, left, right;
+    private PlayerPath paths;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        paths.addRoom(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerPath : MonoBehaviour
 {
-    private List<string> rooms = new List<string>(); 
+    private List<string> rooms = new List<string>();
 
     private void Awake()
     {
-        // Count the # of objects of type GameSettings
+        // Count the # of objects of type PlayerPath
         int playerPathCount = FindObjectsOfType<PlayerPath>().Length;
 
         if (playerPathCount > 1)
@@ -22,15 +23,13 @@ public class PlayerPath : MonoBehaviour
             // make this object persist
             DontDestroyOnLoad(gameObject);
         }
+        
     }
 
     public void addRoom(string room)
     {
         // Adds the current room to the list of rooms visited
         rooms.Add(room);
-
-        var pathText = FindObjectOfType<TextEditor>();
-
     }
 
     // Start is called before the first frame update
@@ -42,6 +41,6 @@ public class PlayerPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 }
