@@ -47,11 +47,23 @@ public class GameSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Read the player prefs volume value
+        float userVolume;
+        if (PlayerPrefs.HasKey("VOLUME"))
+        {
+            userVolume = PlayerPrefs.GetFloat("VOLUME");
+        } else
+        {
+            userVolume = 0.5f;
+        }
+            
+        myAudio.volume = userVolume;
+
         if (!myAudio.isPlaying)
         {
             currentMusic = (currentMusic + 1) % music.Length;
             myAudio.clip = music[currentMusic];
-            // myAudio.Play();
+            myAudio.Play();
         }
         if (Input.GetButtonDown("Fire1"))
         {
