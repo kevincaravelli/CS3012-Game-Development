@@ -6,6 +6,7 @@ public class ShipLogic : MonoBehaviour
 {
     [SerializeField] float velocity = 10.0f;
     [SerializeField] Sprite[] sprites;
+    [SerializeField] GameObject blasterPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,11 @@ public class ShipLogic : MonoBehaviour
     void Update()
     {
         movePlayerShip();
+
+        if (Input.GetButtonDown("Fire1")) shoot();
     }
 
-    void movePlayerShip()
+    private void movePlayerShip()
     {
         // Current paddle position
         var position = transform.position;
@@ -37,5 +40,11 @@ public class ShipLogic : MonoBehaviour
         if (transform.position.x > 5.0f) position.x = 5.0f;
 
         transform.position = position;
+    }
+
+    private void shoot()
+    {
+        Instantiate((blasterPrefab),
+            new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
     }
 }

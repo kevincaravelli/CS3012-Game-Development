@@ -29,8 +29,30 @@ public class EnemyLogic : MonoBehaviour
         position.x += Time.deltaTime * velocity;
 
         if (position.x > 8.0f) position.x = -8;
+        if (position.y > 10.0f)
+        {
+            Destroy(gameObject);
+            FindObjectOfType<SpawnEnemies>().spawnEnemy();
+        }
 
         transform.position = position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Blaster"))
+        {
+            // Destroy the blaster object
+            Destroy(collision.gameObject);
+
+            // When this gameObject's HP reaches 0 DESTROY IT!!!
+            HP--;
+            if (HP == 0)
+            {
+                Destroy(gameObject);
+                FindObjectOfType<SpawnEnemies>().spawnEnemy();
+            }
+        }
     }
 
 }

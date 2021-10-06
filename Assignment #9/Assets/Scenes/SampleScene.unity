@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 890695754}
   - component: {fileID: 890695753}
   m_Layer: 0
-  m_Name: player.ship_0
+  m_Name: Player Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   - {fileID: -2475091871077099821, guid: dc1e642b26c458b49a4aa12d7d62fc68, type: 3}
   - {fileID: -4875589966427798012, guid: dc1e642b26c458b49a4aa12d7d62fc68, type: 3}
   - {fileID: 2486233281301128789, guid: dc1e642b26c458b49a4aa12d7d62fc68, type: 3}
+  blasterPrefab: {fileID: 2500611419168088743, guid: 42ce830db2841274c9f66073c4a04ec0, type: 3}
 --- !u!212 &890695754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -586,6 +587,7 @@ MonoBehaviour:
   enemyPrefab:
   - {fileID: 5011308331384479523, guid: a33d76c14650a994abdff285e0096a26, type: 3}
   - {fileID: 1399254628424466487, guid: a5fc33784cd1c6e49823a9ed8575cb33, type: 3}
+  maxEnemies: 0
 --- !u!4 &1662112520
 Transform:
   m_ObjectHideFlags: 0

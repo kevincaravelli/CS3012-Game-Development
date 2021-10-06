@@ -5,8 +5,10 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefab;
+    [SerializeField] int maxEnemies = 4;
     private float spawnTime, time;
     private float minTime = 2;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,19 @@ public class SpawnEnemies : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= spawnTime)
+        // Limit the number of enemies to 4
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
         {
-            spawnEnemy();
-            setRandomTime();
+            if (time >= spawnTime)
+            {
+                spawnEnemy();
+                setRandomTime();
+            }
         }
+        
     }
 
-    void spawnEnemy()
+    public void spawnEnemy()
     {
         time = minTime;
 
