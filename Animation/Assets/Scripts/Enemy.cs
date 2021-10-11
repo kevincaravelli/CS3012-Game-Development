@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform path;
-    [SerializeField] float velocity = 5.0f;
+    private EnemySpawner enemySpawner;
+    private WaveConfig waveConfig;
     private List<Transform> waypoints;
     private int currentWaypointIndex = 0;
+
+    private void Awake()
+    {
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = new List<Transform>();
+        waveConfig = enemySpawner.getWaveConfig();
+        waypoints = waveConfig.getWaypoints();
+        /*
         foreach(Transform child in path)
         {
             waypoints.Add(child);
         }
-
+        */
         // Debug.Log(waypoints.Count);
         // move the enemy object to the very first waypoint
         transform.position = waypoints[currentWaypointIndex].position;
@@ -37,7 +44,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(
                 transform.position,
                 waypoints[currentWaypointIndex].position,
-                velocity * Time.deltaTime);
+                waveConfig.getVelocity() * Time.deltaTime);
 
             // if we reached the current destination, move to the next one
             if (transform.position == waypoints[currentWaypointIndex].position)
