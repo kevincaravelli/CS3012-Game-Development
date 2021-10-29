@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549739188571944416, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1549739188571944418, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_RootOrder
@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269129f82aaee641826a0cc5da3fa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 1
+  velocity: 10
   player: {fileID: 17134329}
 --- !u!50 &1918335388
 Rigidbody2D:

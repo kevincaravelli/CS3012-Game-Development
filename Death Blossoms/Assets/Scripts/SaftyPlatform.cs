@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaftyPlatform : MonoBehaviour
 {
-    [SerializeField] float velocity = 1.0f;
+    [SerializeField] float velocity = 10.0f;
     [SerializeField] GameObject player;
     private float distance;
     private bool closer = false;
@@ -28,10 +28,10 @@ public class SaftyPlatform : MonoBehaviour
 
         if (closer) // Platform goes up if closer is true
         {
-            position.y = Time.deltaTime * velocity;
+            position.y += Time.deltaTime * velocity;
         } else
         {
-            position.y = Time.deltaTime * -velocity;
+            position.y += Time.deltaTime * -velocity;
         }
 
         // Constrain the saftey platform inbetween -1.5 and -7.5
