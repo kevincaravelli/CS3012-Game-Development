@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 71829827}
   - component: {fileID: 71829826}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,7 +312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1549739188571944416, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_Mass
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1549739188571944416, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_AngularDrag
@@ -320,7 +320,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549739188571944416, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_GravityScale
-      value: 0.4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549739188571944417, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20847276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549739188571944417, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549739188571944417, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4131439
       objectReference: {fileID: 0}
     - target: {fileID: 1549739188571944418, guid: aedcf69236cd8de4792ae983b36bdb99, type: 3}
       propertyPath: m_RootOrder
@@ -476,7 +488,7 @@ GameObject:
   - component: {fileID: 374153643}
   - component: {fileID: 374153642}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -48,7 +48,7 @@ public class SaftyPlatform : MonoBehaviour
         var checkDist = Vector2.Distance(position, playerPos);
 
         // Check if the distance is less then it was (player getting closer)
-        if ( checkDist < distance)
+        if ( checkDist < distance || checkDist < 8)
         {
             closer = true;
         } else

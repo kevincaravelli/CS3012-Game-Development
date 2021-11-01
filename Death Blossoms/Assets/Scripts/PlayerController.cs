@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
     [SerializeField] float velocity = 5.0f;
+    [SerializeField] float jumpForce = 2.0f;
+    private Vector2 jump = new Vector2(0.0f, 2.0f);
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +29,22 @@ public class PlayerController: MonoBehaviour
         // Update the x component when moving on the horizontal axis
         position.x += Input.GetAxis("Horizontal") * Time.deltaTime * velocity;
 
-        // Update the y component when jumping (this will have them fly for now)
-        position.y += Input.GetAxis("Vertical") * Time.deltaTime * velocity;
+        // Have the player jump only if they are on the ground
+        Debug.Log("Grounded is: " + isGrounded);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
+
+
 
         transform.position = position;
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        isGrounded = true;
     }
 }
