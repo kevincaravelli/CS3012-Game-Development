@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 71829827}
   - component: {fileID: 71829826}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: Left Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 374153643}
   - component: {fileID: 374153642}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: Right Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,7 +1008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462569086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32999998, y: 0.63, z: 0}
+  m_LocalPosition: {x: 0.32999998, y: 0.63, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 316547821}

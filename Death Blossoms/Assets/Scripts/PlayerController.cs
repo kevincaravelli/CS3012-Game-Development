@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
     [SerializeField] float velocity = 5.0f;
-    [SerializeField] float jumpForce = 2.0f;
+    [SerializeField] float jumpForce = 10.0f;
     private Vector2 jump = new Vector2(0.0f, 2.0f);
     private bool isGrounded;
 
@@ -31,11 +31,14 @@ public class PlayerController: MonoBehaviour
 
         // Have the player jump only if they are on the ground
         Debug.Log("Grounded is: " + isGrounded);
+        Debug.Log(transform.position);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+            Debug.Log("Jumped Grounded is: " + isGrounded);
+            Debug.Log(transform.position);
         }
 
 
@@ -43,8 +46,11 @@ public class PlayerController: MonoBehaviour
         transform.position = position;
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("Stay " + collision.gameObject.name);
+        Debug.Log("Collision Grounded is: " + isGrounded);
+        Debug.Log(transform.position);
         isGrounded = true;
     }
 }
