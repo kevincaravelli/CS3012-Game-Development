@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaftyPlatform : MonoBehaviour
 {
     [SerializeField] float velocity = 10.0f;
+    [SerializeField] float constraintMax, constraintMin;
     [SerializeField] GameObject player;
     private float distance;
     private bool closer = false;
@@ -35,20 +36,25 @@ public class SaftyPlatform : MonoBehaviour
         }
 
         // Constrain the saftey platform inbetween -1.5 and -7.5
-        if (position.y >= -1.5) position.y = -1.5f;
-        if (position.y <= -7.5) position.y = -7.5f;
+        if (position.y >= constraintMax) position.y = constraintMax;
+        if (position.y <= constraintMin) position.y = constraintMin;
 
         transform.position = position;
     }
 
     private void checkDistance()
     {
-        var playerPos = player.transform.position;
-        var position = transform.position;
-        var checkDist = Vector2.Distance(position, playerPos);
+        /*
+        var playerPos = new Vector2(player.transform.position.x, 0.0f);
+        var platformPos = new Vector2(transform.position.x, 0.0f);
+        var checkDist = Vector2.Distance(platformPos, playerPos);
+        */
+        var checkDist = Vector2.Distance(transform.position, player.transform.position);
+
+        Debug.Log("Distance is: " + checkDist);
 
         // Check if the distance is less then it was (player getting closer)
-        if ( checkDist < distance || checkDist < 8)
+        if ( checkDist < distance || checkDist <= 8)
         {
             closer = true;
         } else

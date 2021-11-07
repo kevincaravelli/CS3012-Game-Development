@@ -30,15 +30,10 @@ public class PlayerController: MonoBehaviour
         position.x += Input.GetAxis("Horizontal") * Time.deltaTime * velocity;
 
         // Have the player jump only if they are on the ground
-        Debug.Log("Grounded is: " + isGrounded);
-        Debug.Log(transform.position);
-
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
-            Debug.Log("Jumped Grounded is: " + isGrounded);
-            Debug.Log(transform.position);
         }
 
 
@@ -48,9 +43,11 @@ public class PlayerController: MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Stay " + collision.gameObject.name);
-        Debug.Log("Collision Grounded is: " + isGrounded);
-        Debug.Log(transform.position);
         isGrounded = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
     }
 }
