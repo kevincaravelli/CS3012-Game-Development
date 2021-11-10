@@ -21,6 +21,11 @@ public class SaftyPlatform : MonoBehaviour
     {
         checkDistance();
         movePlatform();
+
+        if (player.transform.position.x < transform.position.x && player.GetComponent<SpriteRenderer>().flipX)
+        {
+            // Player is left of platform && player is facing left
+        }
     }
 
     private void movePlatform()
@@ -51,7 +56,6 @@ public class SaftyPlatform : MonoBehaviour
         */
         var checkDist = Vector2.Distance(transform.position, player.transform.position);
 
-        Debug.Log("Distance is: " + checkDist);
 
         // Check if the distance is less then it was (player getting closer)
         if ( checkDist < distance || checkDist <= 8)
