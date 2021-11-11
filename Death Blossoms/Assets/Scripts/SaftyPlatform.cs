@@ -22,16 +22,26 @@ public class SaftyPlatform : MonoBehaviour
         checkDistance();
         movePlatform();
 
-        if (player.transform.position.x < transform.position.x && player.GetComponent<SpriteRenderer>().flipX)
-        {
-            // Player is left of platform && player is facing left
-        }
     }
 
     private void movePlatform()
     {
         var position = transform.position;
 
+        if (player.transform.position.x < (transform.position.x - 2.5f) && player.GetComponent<SpriteRenderer>().flipX)
+        {
+            // Player is left of platform && player is facing left
+            position.y += Time.deltaTime * -velocity;
+        } else if (player.transform.position.x > (transform.position.x + 2.5f) && !player.GetComponent<SpriteRenderer>().flipX)    
+        {
+            // Player is right of platform && player is facing right
+            position.y += Time.deltaTime * -velocity;
+        } else
+        {
+            position.y += Time.deltaTime * velocity;
+        }
+
+        /*
         if (closer) // Platform goes up if closer is true
         {
             position.y += Time.deltaTime * velocity;
@@ -39,7 +49,7 @@ public class SaftyPlatform : MonoBehaviour
         {
             position.y += Time.deltaTime * -velocity;
         }
-
+        */
         // Constrain the saftey platform inbetween -1.5 and -7.5
         if (position.y >= constraintMax) position.y = constraintMax;
         if (position.y <= constraintMin) position.y = constraintMin;
