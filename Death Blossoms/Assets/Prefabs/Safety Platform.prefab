@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5177158563069287002}
   - component: {fileID: 4226873980907470835}
   m_Layer: 0
-  m_Name: Forest TileSet Pixel Art #1 160x160_3
+  m_Name: Left End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,11 +25,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150345047745957748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -1.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5265705709554484851}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4226873980907470835
 SpriteRenderer:
@@ -109,11 +109,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5272502035154893218}
-  - {fileID: 6930197842660125937}
-  - {fileID: 8263839771146802277}
-  - {fileID: 8544122531210790406}
   - {fileID: 5177158563069287002}
+  - {fileID: 8544122531210790406}
+  - {fileID: 5272502035154893218}
+  - {fileID: 8263839771146802277}
+  - {fileID: 6930197842660125937}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 5272502035154893218}
   - component: {fileID: 4644845770509003350}
   m_Layer: 0
-  m_Name: Forest TileSet Pixel Art #1 160x160_4
+  m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5265705709554484851}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4644845770509003350
 SpriteRenderer:
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8544122531210790406}
   - component: {fileID: 5617905007508950998}
   m_Layer: 0
-  m_Name: Forest TileSet Pixel Art #1 160x160_4 (2)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5265705709554484851}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5617905007508950998
 SpriteRenderer:
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 8263839771146802277}
   - component: {fileID: 6771792930138073867}
   m_Layer: 0
-  m_Name: Forest TileSet Pixel Art #1 160x160_4 (1)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5265705709554484851}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6771792930138073867
 SpriteRenderer:
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 6930197842660125937}
   - component: {fileID: 2758628375315056065}
   m_Layer: 0
-  m_Name: Forest TileSet Pixel Art #1 160x160_5
+  m_Name: Right End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,11 +388,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9191962739394886736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 1.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5265705709554484851}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2758628375315056065
 SpriteRenderer:

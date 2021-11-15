@@ -16,12 +16,8 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 xMovement =
-            Vector3.right * velocity * Time.deltaTime
-            * Input.GetAxis("Horizontal");
-        Vector3 yMovement =
-            Vector3.up * velocity * Time.deltaTime
-            * Input.GetAxis("Vertical");
+        Vector3 xMovement = Vector3.right * velocity * Time.deltaTime * Input.GetAxis("Horizontal");
+        Vector3 yMovement = Vector3.up * velocity * Time.deltaTime * Input.GetAxis("Vertical");
         Vector3 movement = xMovement + yMovement;
         transform.position += movement;
 
