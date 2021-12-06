@@ -6,15 +6,19 @@ public class PlayerController: MonoBehaviour
 {
     [SerializeField] float velocity = 5.0f;
     [SerializeField] float jumpForce = 3.5f;
+    private Vector2 input;
     private Vector2 jump = new Vector2(0.0f, 2.0f);
-    private bool isGrounded;
     private SpriteRenderer myRenderer;
     private Animator myAnimator;
     public bool isJumping;
     public float jumpSpeed = 8f;
+    public float jumpDurationThreshold = 0.25f;
+    private float jumpDuration;
     private float rayCastLengthCheck = 0.005f;
     private float width;
     private float height;
+ 
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,7 @@ public class PlayerController: MonoBehaviour
     void Update()
     {
         movePlayer();
+
     }
 
     private void movePlayer()
@@ -80,9 +85,11 @@ public class PlayerController: MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && PlayerIsOnGround())
         {
             GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
         }
-        
+
+        if (jumpDuration > jumpDurationThreshold) input.y = 0f;
+
+
     }
 
     public bool PlayerIsOnGround()
