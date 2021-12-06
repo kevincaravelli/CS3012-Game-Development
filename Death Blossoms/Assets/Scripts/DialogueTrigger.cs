@@ -15,4 +15,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }

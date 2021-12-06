@@ -6,6 +6,7 @@ public class PlayerController: MonoBehaviour
 {
     [SerializeField] float velocity = 5.0f;
     [SerializeField] float jumpForce = 3.5f;
+
     private Vector2 input;
     private Vector2 jump = new Vector2(0.0f, 2.0f);
     private SpriteRenderer myRenderer;
@@ -17,8 +18,13 @@ public class PlayerController: MonoBehaviour
     private float rayCastLengthCheck = 0.005f;
     private float width;
     private float height;
+    
     private bool frozen;
- 
+    private bool idle;
+
+    [SerializeField] AudioClip[] music;
+    private AudioSource audioSrc;
+    private int currentMusic;
 
 
     // Start is called before the first frame update
@@ -28,6 +34,8 @@ public class PlayerController: MonoBehaviour
         myAnimator = GetComponent<Animator>();
         width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
         height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
+        audioSrc = GetComponent<AudioSource>();
+        currentMusic = 0;
     }
 
     // Update is called once per frame
@@ -39,6 +47,7 @@ public class PlayerController: MonoBehaviour
         } else
         {
             myAnimator.SetBool("running", false);
+            audioSrc.Stop();
         }
         
 
@@ -72,11 +81,14 @@ public class PlayerController: MonoBehaviour
         if (dX == 0.0f)
         {
             // idling
+            idle = true;
+            audioSrc.Stop();
             myAnimator.SetBool("running", false);
         }
         else
         {
             // walking
+            idle = false;
             myAnimator.SetBool("running", true);
             // myAnimator.SetFloat("moveX", dX);
         }
@@ -117,6 +129,7 @@ public class PlayerController: MonoBehaviour
 
     public void freezePlayer()
     {
+        audioSrc.Stop();
         frozen = true;
     }
 
@@ -127,8 +140,17 @@ public class PlayerController: MonoBehaviour
     
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // if (collision.gameObject.name != "Walls") isGrounded = true;
         myAnimator.SetBool("jumping", false);
+
+        if (collision.gameObject.tag == "grass" && !idle)
+        {
+            if (!audioSrc.isPlaying)
+            {
+                currentMusic = (currentMusic + 1) % music.Length;
+                audioSrc.clip = music[currentMusic];
+                audioSrc.Play();
+            }
+        }
     }
 
     
@@ -136,6 +158,7 @@ public class PlayerController: MonoBehaviour
     {
         // isGrounded = false;
         myAnimator.SetBool("jumping", true);
+        audioSrc.Stop();
     }
     
 }
