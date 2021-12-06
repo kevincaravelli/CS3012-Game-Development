@@ -17,6 +17,7 @@ public class PlayerController: MonoBehaviour
     private float rayCastLengthCheck = 0.005f;
     private float width;
     private float height;
+    private bool frozen;
  
 
 
@@ -32,12 +33,20 @@ public class PlayerController: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movePlayer();
+        if (!frozen)
+        {
+            movePlayer();
+        } else
+        {
+            myAnimator.SetBool("running", false);
+        }
+        
 
     }
 
     private void movePlayer()
     {
+        input.y = Input.GetAxis("Jump");
         // Current position of player
         // Update the x component when moving on the horizontal axis
         Vector3 position = Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * velocity;
@@ -86,10 +95,6 @@ public class PlayerController: MonoBehaviour
         {
             GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
         }
-
-        if (jumpDuration > jumpDurationThreshold) input.y = 0f;
-
-
     }
 
     public bool PlayerIsOnGround()
@@ -109,18 +114,28 @@ public class PlayerController: MonoBehaviour
             return false;
         }
     }
-    /*
+
+    public void freezePlayer()
+    {
+        frozen = true;
+    }
+
+    public void freePlayer()
+    {
+        frozen = false;
+    }
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name != "Walls") isGrounded = true;
+        // if (collision.gameObject.name != "Walls") isGrounded = true;
         myAnimator.SetBool("jumping", false);
     }
 
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isGrounded = false;
+        // isGrounded = false;
         myAnimator.SetBool("jumping", true);
     }
-    */
+    
 }
