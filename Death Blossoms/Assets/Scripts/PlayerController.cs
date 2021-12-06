@@ -10,12 +10,19 @@ public class PlayerController: MonoBehaviour
     private bool isGrounded;
     private SpriteRenderer myRenderer;
     private Animator myAnimator;
+    public bool isJumping;
+    public float jumpSpeed = 8f;
+    private float rayCastLengthCheck = 0.005f;
+    private float width;
+    private float height;
 
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
+        width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
+        height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
     }
 
     // Update is called once per frame
@@ -68,18 +75,37 @@ public class PlayerController: MonoBehaviour
         {
             myRenderer.flipX = true;
         }
-
+        
         // Have the player jump only if they are on the ground
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && PlayerIsOnGround())
         {
             GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
+        
     }
 
+    public bool PlayerIsOnGround()
+    {
+        // Establish raycasts
+        bool groundCheck1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - height), -Vector2.up, rayCastLengthCheck);
+        bool groundCheck2 = Physics2D.Raycast(new Vector2(transform.position.x + (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLengthCheck);
+        bool groundCheck3 = Physics2D.Raycast(new Vector2(transform.position.x - (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLengthCheck);
+
+        // Check each raycast and if any of them are grounded they are on the ground
+        if (groundCheck1 || groundCheck2 || groundCheck3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    /*
     private void OnCollisionStay2D(Collision2D collision)
     {
-        isGrounded = true;
+        if (collision.gameObject.name != "Walls") isGrounded = true;
         myAnimator.SetBool("jumping", false);
     }
 
@@ -89,4 +115,5 @@ public class PlayerController: MonoBehaviour
         isGrounded = false;
         myAnimator.SetBool("jumping", true);
     }
+    */
 }
