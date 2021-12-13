@@ -60,6 +60,7 @@ public class PlayerController: MonoBehaviour
         // Update the x component when moving on the horizontal axis
         Vector3 position = Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * velocity;
 
+
         // The player can crouch
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -74,6 +75,7 @@ public class PlayerController: MonoBehaviour
             // player cant move if they are crouching
             transform.position += position;
         }
+        
 
         position = Vector3.Normalize(position);
         float dX = position.x;

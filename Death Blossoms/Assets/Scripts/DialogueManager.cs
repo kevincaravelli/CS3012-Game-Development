@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         FindObjectOfType<PlayerController>().freezePlayer();
-        
+            
         animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
 
@@ -63,5 +63,10 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         FindObjectOfType<PlayerController>().freePlayer();
+
+        if (FindObjectOfType<DialogueTrigger>().tag == "active")
+        {
+            FindObjectOfType<DialogueTrigger>().removeObject();
+        }
     }
 }
