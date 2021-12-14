@@ -12,15 +12,19 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private DialogueTrigger dialogueObject;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueObject)
     {
         FindObjectOfType<PlayerController>().freezePlayer();
+
+        this.dialogueObject = dialogueObject;
             
         animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
@@ -62,11 +66,11 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("isOpen", false);
-        FindObjectOfType<PlayerController>().freePlayer();
 
-        if (FindObjectOfType<DialogueTrigger>().tag == "active")
+        if (dialogueObject.tag == "active")
         {
-            FindObjectOfType<DialogueTrigger>().removeObject();
+            dialogueObject.removeObject();
         }
+        FindObjectOfType<PlayerController>().freePlayer();
     }
 }

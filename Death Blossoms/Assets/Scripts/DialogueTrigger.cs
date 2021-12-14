@@ -9,13 +9,13 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         gameObject.tag = "active";
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, gameObject.GetComponent<DialogueTrigger>());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameObject.tag = "active";
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, gameObject.GetComponent<DialogueTrigger>());
     }
 
     public void removeObject()
