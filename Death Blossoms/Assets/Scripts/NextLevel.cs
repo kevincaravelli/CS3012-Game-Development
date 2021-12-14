@@ -24,7 +24,7 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.Equals(player))
         {
-            SceneManager.LoadScene(sceneID);
+            SceneManager.LoadScene("Loading");
         }
     }
 }
