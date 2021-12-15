@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] int sceneID;
+    [SerializeField] string sceneID;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.Equals(player))
         {
-            SceneManager.LoadScene("Loading");
+            SceneManager.LoadScene(sceneID);
         }
     }
 }

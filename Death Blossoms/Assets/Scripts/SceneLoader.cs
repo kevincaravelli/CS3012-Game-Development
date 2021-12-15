@@ -9,9 +9,24 @@ public class SceneLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public void loadMainMenu()
+    {
+        StartCoroutine(LoadLevel("Main Menu"));
+    }
+
+    public void loadOptionsMenu()
+    {
+        StartCoroutine(LoadLevel("Options Menu"));
+    }
+
     public void loadScene(int sceneID)
     {
-        SceneManager.LoadScene(sceneID);
+        StartCoroutine(LoadLevel(sceneID));
+    }
+
+    public void loadScene(string sceneID)
+    {
+        StartCoroutine(LoadLevel(sceneID));
     }
 
     public void loadNextLevel()
@@ -20,6 +35,18 @@ public class SceneLoader : MonoBehaviour
     }
 
     IEnumerator LoadLevel(int levelIndex)
+    {
+        // Play Animation
+        transition.SetTrigger("Start");
+
+        // Wait
+        yield return new WaitForSeconds(transitionTime);
+
+        // Load Scene
+        SceneManager.LoadScene(levelIndex);
+    }
+
+    IEnumerator LoadLevel(string levelIndex)
     {
         // Play Animation
         transition.SetTrigger("Start");
