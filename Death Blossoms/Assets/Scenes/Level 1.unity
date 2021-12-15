@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 197294391}
   - component: {fileID: 197294395}
   m_Layer: 0
-  m_Name: Suzzane Bobble Second
+  m_Name: Suzzane Fairy 2
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.976, y: 1}
+    oldSize: {x: 1, y: 1.0689656}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Suzzane Bobble
+    name: Suzzane Fairy
     sentences:
     - 'Howdy! '
     - 'You made it. This is great. '
@@ -454,7 +454,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6ec8f6874aa611439f36248aea74805, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6731477f15f45141ac4d7d3239a6156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -496,7 +496,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.976, y: 1}
+    oldSize: {x: 1, y: 1.0689656}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2286,7 +2286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.5, y: -7, z: -42.8047}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4145,7 +4145,7 @@ MonoBehaviour:
     name: You (probably)
     sentences:
     - Wha... what? Where am I?
-    - Oh... there appears to be a bobble over there.
+    - Oh... there appears to be a fairy over there.
     - 'I think I can reach them if I press the D key to move right. '
     - I wonder what happens when I press the A key. Maybe I should try both.
 --- !u!4 &901470815
@@ -4336,7 +4336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Soozanne Bobble
+    name: Soozanne Fairy
     sentences:
     - 'Oh jee willikers!!!
 
@@ -4780,7 +4780,7 @@ GameObject:
   - component: {fileID: 1644230970}
   - component: {fileID: 1644230969}
   m_Layer: 0
-  m_Name: Suzzane Bobble
+  m_Name: Suzzane Fairy 1
   m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4803,7 +4803,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.976, y: 1}
+    oldSize: {x: 1, y: 1.0689656}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4825,10 +4825,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Suzzane Bobble
+    name: Zuzzane Fairy
     sentences:
     - Gahhh you hit me!!!
-    - I am but a Suzzane bobble.
+    - I am but a Suzzane Fairy.
     - Huh? You don't seem so familiar with this place.
     - Welcome to the dreamworld.
     - 'There is only one way to wake up from a dream, you have to die, duh. '
@@ -4873,7 +4873,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6ec8f6874aa611439f36248aea74805, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6731477f15f45141ac4d7d3239a6156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -31939,6 +31939,10 @@ PrefabInstance:
     - target: {fileID: 22488340242709724, guid: 12d9c5920ea026f48914d7b5baf8f768, type: 3}
       propertyPath: m_Name
       value: 5x Saftey Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488340242709724, guid: 12d9c5920ea026f48914d7b5baf8f768, type: 3}
+      propertyPath: m_TagString
+      value: grass
       objectReference: {fileID: 0}
     - target: {fileID: 6358756428147808746, guid: 12d9c5920ea026f48914d7b5baf8f768, type: 3}
       propertyPath: m_RootOrder
